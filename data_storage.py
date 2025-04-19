@@ -65,11 +65,13 @@ class DataStorage:
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS budgets (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
                     category TEXT NOT NULL,
                     amount REAL NOT NULL,
                     period TEXT NOT NULL, -- e.g. 'monthly', 'weekly'
                     start_date TEXT,
-                    end_date TEXT
+                    end_date TEXT,
+                    FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             ''')
 
@@ -77,10 +79,12 @@ class DataStorage:
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS goals (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
                     name TEXT NOT NULL,
                     target_amount REAL NOT NULL,
                     current_amount REAL DEFAULT 0,
-                    deadline TEXT
+                    deadline TEXT,
+                    FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             ''')
 
@@ -107,9 +111,13 @@ class DataStorage:
         try:
             cursor = self.conn.cursor()
             cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='income' AND user_id=?", (user_id,))
-            total_income = cursor.fetchone()[0] or 0
+            total_income = cursor.fetchone()[0]
+            if total_income is None:
+                total_income = 0
             cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='outcome' AND user_id=?", (user_id,))
-            total_outcome = cursor.fetchone()[0] or 0
+            total_outcome = cursor.fetchone()[0]
+            if total_outcome is None:
+                total_outcome = 0
             balance = total_income - total_outcome
             logger.info(f"Report generated for user {user_id}: Income={total_income}, Outcome={total_outcome}, Balance={balance}")
             return {
@@ -119,7 +127,11 @@ class DataStorage:
             }
         except Error as e:
             logger.error(f"Error generating report for user {user_id}: {e}")
-            return None
+            return {
+                'total_income': 0,
+                'total_outcome': 0,
+                'balance': 0
+            }
 
     def get_transactions(self, user_id: int, start_date: str = None, end_date: str = None, type_: str = None):
         try:
