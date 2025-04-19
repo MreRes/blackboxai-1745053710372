@@ -22,6 +22,13 @@ USERS = {
     "admin": "password123"
 }
 
+def get_user_id(username):
+    # For now, map username to user_id 1 for admin
+    # In future, implement user table and lookup
+    if username == "admin":
+        return 1
+    return None
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -53,10 +60,11 @@ def login_required(f):
 @app.route('/')
 @login_required
 def home():
-    report = data_storage.get_report()
+    user_id = get_user_id(session['username'])
+    report = data_storage.get_report(user_id)
     if report is None:
         return "Error generating report", 500
-    recent_transactions = data_storage.get_transactions()
+    recent_transactions = data_storage.get_transactions(user_id)
     return render_template('dashboard.html',
                            total_income=report['total_income'],
                            total_outcome=report['total_outcome'],
@@ -75,15 +83,96 @@ def api_report():
 @app.route('/transactions')
 @login_required
 def transactions():
+    user_id = get_user_id(session['username'])
     start_date = request.args.get('start_date')
     end_date = request.args.get('end_date')
     type_ = request.args.get('type')
-    transactions = data_storage.get_transactions(start_date, end_date, type_)
+    transactions = data_storage.get_transactions(user_id, start_date, end_date, type_)
     return render_template('transactions.html', transactions=transactions)
+
+import csv
+from io import StringIO
+from flask import Response
+
+@app.route('/transactions/export')
+@login_required
+def export_transactions():
+    user_id = get_user_id(session['username'])
+    transactions = data_storage.get_transactions(user_id)
+    si = StringIO()
+    cw = csv.writer(si)
+    cw.writerow(['Date', 'Type', 'Amount', 'Description', 'Sender'])
+    for t in transactions:
+        cw.writerow([t['date'], t['type'], t['amount'], t['description'], t['display_name'] or t['sender_phone'] or 'Unknown'])
+    output = si.getvalue()
+    return Response(
+        output,
+        mimetype='text/csv',
+        headers={"Content-Disposition": "attachment;filename=transactions.csv"}
+    )
+
+@app.route('/budgets/export')
+@login_required
+def export_budgets():
+    user_id = get_user_id(session['username'])
+    budgets = data_storage.get_budgets(user_id)
+    si = StringIO()
+    cw = csv.writer(si)
+    cw.writerow(['Category', 'Amount', 'Period', 'Start Date', 'End Date'])
+    for b in budgets:
+        cw.writerow([b['category'], b['amount'], b['period'], b['start_date'], b['end_date']])
+    output = si.getvalue()
+    return Response(
+        output,
+        mimetype='text/csv',
+        headers={"Content-Disposition": "attachment;filename=budgets.csv"}
+    )
+
+@app.route('/goals/export')
+@login_required
+def export_goals():
+    user_id = get_user_id(session['username'])
+    goals = data_storage.get_goals(user_id)
+    si = StringIO()
+    cw = csv.writer(si)
+    cw.writerow(['Name', 'Target Amount', 'Current Amount', 'Deadline'])
+    for g in goals:
+        cw.writerow([g['name'], g['target_amount'], g['current_amount'], g['deadline']])
+    output = si.getvalue()
+    return Response(
+        output,
+        mimetype='text/csv',
+        headers={"Content-Disposition": "attachment;filename=goals.csv"}
+    )
+
+@app.route('/contacts/export')
+@login_required
+def export_contacts():
+    user_id = get_user_id(session['username'])
+    contacts = data_storage.get_contacts(user_id)
+    si = StringIO()
+    cw = csv.writer(si)
+    cw.writerow(['Phone Number', 'Display Name'])
+    for c in contacts:
+        cw.writerow([c['phone_number'], c['display_name']])
+    output = si.getvalue()
+    return Response(
+        output,
+        mimetype='text/csv',
+        headers={"Content-Disposition": "attachment;filename=contacts.csv"}
+    )
+
+@app.route('/notifications')
+@login_required
+def notifications():
+    user_id = get_user_id(session['username'])
+    notifications = data_storage.get_notifications(user_id)
+    return render_template('notifications.html', notifications=notifications)
 
 @app.route('/budgets', methods=['GET', 'POST'])
 @login_required
 def budgets():
+    user_id = get_user_id(session['username'])
     if request.method == 'POST':
         category = request.form.get('category')
         amount = request.form.get('amount')
@@ -92,29 +181,30 @@ def budgets():
         end_date = request.form.get('end_date')
         try:
             amount = float(amount)
-            data_storage.add_budget(category, amount, period, start_date, end_date)
+            data_storage.add_budget(user_id, category, amount, period, start_date, end_date)
             return redirect(url_for('budgets'))
         except Exception as e:
-            logger.error(f"Error processing budget form: {e}")
+            logger.error(f"Error processing budget form for user {user_id}: {e}")
 
-    budgets = data_storage.get_budgets()
+    budgets = data_storage.get_budgets(user_id)
     return render_template('budgets.html', budgets=budgets)
 
 @app.route('/goals', methods=['GET', 'POST'])
 @login_required
 def goals():
+    user_id = get_user_id(session['username'])
     if request.method == 'POST':
         name = request.form.get('name')
         target_amount = request.form.get('target_amount')
         deadline = request.form.get('deadline')
         try:
             target_amount = float(target_amount)
-            data_storage.add_goal(name, target_amount, deadline)
+            data_storage.add_goal(user_id, name, target_amount, deadline)
             return redirect(url_for('goals'))
         except Exception as e:
-            logger.error(f"Error processing goal form: {e}")
+            logger.error(f"Error processing goal form for user {user_id}: {e}")
 
-    goals = data_storage.get_goals()
+    goals = data_storage.get_goals(user_id)
     return render_template('goals.html', goals=goals)
 
 LOGIN_HTML = """
@@ -177,18 +267,19 @@ def reports():
 @app.route('/contacts', methods=['GET', 'POST'])
 @login_required
 def contacts():
+    user_id = get_user_id(session['username'])
     if request.method == 'POST':
         phone_number = request.form.get('phone_number')
         display_name = request.form.get('display_name')
         if phone_number:
-            existing_contacts = data_storage.get_contacts()
+            existing_contacts = data_storage.get_contacts(user_id)
             existing_phones = [c['phone_number'] for c in existing_contacts]
             if phone_number in existing_phones:
-                data_storage.update_contact_name(phone_number, display_name)
+                data_storage.update_contact_name(user_id, phone_number, display_name)
             else:
-                data_storage.add_contact(phone_number, display_name)
+                data_storage.add_contact(user_id, phone_number, display_name)
         return redirect(url_for('contacts'))
-    contacts = data_storage.get_contacts()
+    contacts = data_storage.get_contacts(user_id)
     return render_template('contacts.html', contacts=contacts)
 
 if __name__ == '__main__':
