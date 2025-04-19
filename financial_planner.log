@@ -1,0 +1,313 @@
+2025-04-19 07:32:30,647 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:32:30,673 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:32:30,874 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:32:30,875 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:32:32,544 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:32:32,544 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:32:39,507 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:41,694 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:42,468 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:43,253 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:43,264 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:43,562 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:44,892 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:44,916 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:45,913 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:45,972 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:47,275 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:47,554 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:48,334 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:48,626 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:49,359 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:50,617 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:50,623 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:51,021 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:51,558 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:51,933 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:52,187 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:52,451 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:52,694 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:53,532 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:54,718 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:55,006 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:55,288 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:56,328 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:56,355 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:57,211 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:57,491 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:59,225 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:32:59,402 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:33:00,326 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:33:00,574 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:33:01,447 - financial_planner - ERROR - Error generating report: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 139798210851456 and this is thread id 139798176360192.
+2025-04-19 07:34:08,136 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:34:08,136 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:34:08,323 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:34:08,324 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:34:09,347 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:09,347 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:09,740 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:34:09,740 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:34:10,087 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:10,088 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:10,356 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:10,357 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:11,132 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:11,132 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:11,700 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:11,700 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:12,197 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:12,197 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:12,901 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:12,901 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:12,943 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:12,943 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:13,101 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:13,101 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:13,379 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:13,379 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:14,120 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:14,120 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:14,708 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:14,708 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:15,011 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:15,011 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:16,275 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:16,275 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:16,563 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:16,563 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:17,150 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:17,150 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:17,433 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:17,434 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:17,849 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:17,849 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:18,212 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:18,212 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:18,506 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:18,506 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:18,747 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:18,747 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:19,040 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:19,040 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:19,820 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:19,821 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:20,746 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:20,746 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:21,631 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:21,632 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:22,708 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:22,708 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:22,751 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:22,751 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:23,015 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:23,015 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:23,319 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:23,319 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:23,769 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:23,769 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:24,107 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:24,107 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:24,505 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:24,506 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:25,229 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:25,229 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:27,105 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:27,105 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:27,358 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:27,359 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:28,449 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:28,449 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:28,467 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:28,467 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:29,213 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:29,214 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:29,637 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:29,637 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:30,102 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:30,102 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:30,277 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:30,277 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:34:30,652 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:34:30,653 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:23,305 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:40:23,305 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:40:23,560 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:40:23,560 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:40:25,621 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:25,622 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:25,752 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:25,753 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:25,922 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:40:25,922 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:40:26,740 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:26,740 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:27,770 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:27,770 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:28,551 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:28,551 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:29,332 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:29,332 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:30,824 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:30,824 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:30,968 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:30,968 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:31,789 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:31,789 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:32,272 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:32,272 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:32,644 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:32,644 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:36,840 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:36,840 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:37,586 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:37,587 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:38,101 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:38,101 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:38,338 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:38,338 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:38,635 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:38,635 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:39,455 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:39,455 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:39,744 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:39,744 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:40,804 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:40,804 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:40,835 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:40,835 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:41,594 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:41,594 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:42,490 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:42,491 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:40:43,712 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:40:43,712 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:49:12,763 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:49:12,763 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:49:12,969 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:49:12,969 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:49:14,153 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:49:14,153 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 07:49:56,774 - financial_planner - INFO - User admin logged in.
+2025-04-19 07:57:16,624 - financial_planner - INFO - User admin logged in.
+2025-04-19 07:57:16,879 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 07:57:16,879 - financial_planner - INFO - Serving financial report page.
+2025-04-19 07:59:35,568 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 07:59:35,619 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:00:48,031 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:00:48,032 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:03:53,687 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:03:53,688 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:04:37,136 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:04:37,136 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,891 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 08:30:13,891 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,891 - financial_planner - INFO - Budget added: TestCategory, 2000, monthly
+2025-04-19 08:30:13,892 - financial_planner - INFO - Fetched 1 budgets
+2025-04-19 08:30:13,892 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 08:30:13,892 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,892 - financial_planner - INFO - Goal added: TestGoal, 5000, None
+2025-04-19 08:30:13,892 - financial_planner - INFO - Fetched 1 goals
+2025-04-19 08:30:13,892 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 08:30:13,893 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,893 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 08:30:13,893 - financial_planner - INFO - Transaction added: income, 1000, Test income, None
+2025-04-19 08:30:13,893 - financial_planner - INFO - Report generated: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 08:30:13,893 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 08:30:13,893 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,894 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 08:30:13,894 - financial_planner - INFO - Transaction added: outcome, 500, Test outcome, None
+2025-04-19 08:30:13,894 - financial_planner - INFO - Report generated: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 08:30:13,894 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 08:30:13,894 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,894 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 08:30:13,895 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 08:30:13,895 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,895 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 08:30:13,895 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 08:30:13,896 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:30:13,896 - financial_planner - INFO - Goal added: ProgressGoal, 10000, None
+2025-04-19 08:30:13,896 - financial_planner - INFO - Fetched 1 goals
+2025-04-19 08:30:13,896 - financial_planner - INFO - Goal 1 progress updated to 3000
+2025-04-19 08:30:13,896 - financial_planner - INFO - Fetched 1 goals
+2025-04-19 08:34:49,090 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:34:49,091 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:34:49,095 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:34:49,096 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:34:49,283 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:34:49,284 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:34:49,288 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:34:49,288 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:34:51,823 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:34:51,824 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:34:51,827 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:34:51,828 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:35:07,511 - financial_planner - INFO - User admin logged in.
+2025-04-19 08:35:07,792 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 08:35:07,792 - financial_planner - INFO - Serving financial report page.
+2025-04-19 08:41:22,435 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:41:22,435 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:41:22,439 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:41:22,440 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:42:12,786 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:42:12,787 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:42:12,805 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:42:12,808 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:43:21,209 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:43:21,210 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:43:21,215 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:43:21,215 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:44:32,599 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:44:32,600 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:44:32,603 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:44:32,604 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:46:46,174 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:46:46,175 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:47:41,519 - financial_planner - INFO - User admin logged in.
+2025-04-19 08:47:41,812 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 08:47:41,813 - financial_planner - INFO - Fetched 0 transactions
+2025-04-19 08:48:50,677 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:48:50,678 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:49:48,979 - financial_planner - INFO - User admin logged in.
+2025-04-19 08:49:49,291 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 08:49:49,291 - financial_planner - INFO - Fetched 0 transactions
+2025-04-19 08:50:04,829 - financial_planner - INFO - Fetched 0 transactions
+2025-04-19 08:50:06,466 - financial_planner - INFO - Fetched 0 budgets
+2025-04-19 08:50:10,271 - financial_planner - INFO - Fetched 0 goals
+2025-04-19 08:50:11,914 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 08:50:11,915 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 08:50:15,060 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 08:50:15,060 - financial_planner - INFO - Fetched 0 transactions
+2025-04-19 08:52:22,570 - financial_planner - INFO - Fetched 0 transactions
+2025-04-19 08:53:50,074 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 08:53:50,074 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 08:54:39,785 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 08:54:39,785 - financial_planner - INFO - Fetched 0 transactions
+2025-04-19 08:54:42,757 - financial_planner - INFO - Fetched 0 transactions
+2025-04-19 08:54:45,074 - financial_planner - INFO - Fetched 0 budgets
+2025-04-19 08:54:46,849 - financial_planner - INFO - Fetched 0 goals
+2025-04-19 08:55:33,884 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:55:33,897 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:55:56,163 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:55:56,164 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:56:31,477 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:56:31,477 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:57:14,805 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:57:14,806 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:57:38,084 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:57:38,084 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 08:58:30,435 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 08:58:30,435 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 09:04:20,016 - financial_planner - INFO - User admin logged in.
+2025-04-19 09:04:20,289 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 09:04:20,289 - financial_planner - ERROR - Error fetching transactions: no such column: t.sender_phone
+2025-04-19 09:04:23,850 - financial_planner - ERROR - Error fetching transactions: no such column: t.sender_phone
+2025-04-19 09:04:27,054 - financial_planner - INFO - Fetched 0 budgets
+2025-04-19 09:04:29,342 - financial_planner - INFO - Fetched 0 goals
+2025-04-19 09:04:31,116 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 09:04:31,116 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 09:05:10,655 - financial_planner - ERROR - Error fetching transactions: no such column: t.sender_phone
+2025-04-19 09:06:33,528 - financial_planner - ERROR - Error fetching transactions: no such column: t.sender_phone
+2025-04-19 09:07:00,675 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
+2025-04-19 09:07:00,676 - financial_planner - ERROR - Error fetching transactions: no such column: t.sender_phone
+2025-04-19 09:08:01,634 - financial_planner - INFO - Fetched 0 contacts
