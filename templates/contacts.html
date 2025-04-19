@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Contacts{% endblock %}
 {% block content %}
-<h1 class="text-3xl font-bold mb-6">Contacts</h1>
+<h1 class="text-3xl font-bold mb-6 flex justify-between items-center">
+    Contacts
+    <a href="{{ url_for('export_contacts') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-sm">
+        Export CSV
+    </a>
+</h1>
 <form method="post" class="max-w-md mb-6 space-y-4 bg-white p-6 rounded shadow">
     <div>
         <label for="phone_number" class="block font-semibold mb-1">Phone Number</label>
