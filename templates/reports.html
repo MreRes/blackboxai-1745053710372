@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Reports{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Reports</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4">Daily Report</h2>
+        <canvas id="dailyReportChart" width="400" height="300"></canvas>
+        <input type="date" id="dailyDate" class="mt-4 border border-gray-300 rounded px-3 py-2 w-full" value="{{ daily_date }}">
+    </div>
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4">Monthly Report</h2>
+        <canvas id="monthlyReportChart" width="400" height="300"></canvas>
+        <input type="month" id="monthlyDate" class="mt-4 border border-gray-300 rounded px-3 py-2 w-full" value="{{ monthly_date }}">
+    </div>
+</div>
+
+<script>
+    const dailyData = {
+        labels: ['Income', 'Outcome', 'Balance'],
+        datasets: [{
+            label: 'Daily Report (Rp)',
+            data: [{{ daily_report.income }}, {{ daily_report.outcome }}, {{ daily_report.balance }}],
+            backgroundColor: ['#16a34a', '#dc2626', '#374151'],
+        }]
+    };
+
+    const monthlyData = {
+        labels: ['Income', 'Outcome', 'Balance'],
+        datasets: [{
+            label: 'Monthly Report (Rp)',
+            data: [{{ monthly_report.income }}, {{ monthly_report.outcome }}, {{ monthly_report.balance }}],
+            backgroundColor: ['#16a34a', '#dc2626', '#374151'],
+        }]
+    };
+
+    const configDaily = {
+        type: 'bar',
+        data: dailyData,
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    };
+
+    const configMonthly = {
+        type: 'bar',
+        data: monthlyData,
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    };
+
+    const dailyReportChart = new Chart(
+        document.getElementById('dailyReportChart'),
+        configDaily
+    );
+
+    const monthlyReportChart = new Chart(
+        document.getElementById('monthlyReportChart'),
+        configMonthly
+    );
+
+    document.getElementById('dailyDate').addEventListener('change', function() {
+        const date = this.value;
+        window.location.href = "{{ url_for('reports') }}?daily_date=" + date + "&monthly_date={{ monthly_date }}";
+    });
+
+    document.getElementById('monthlyDate').addEventListener('change', function() {
+        const date = this.value;
+        window.location.href = "{{ url_for('reports') }}?daily_date={{ daily_date }}&monthly_date=" + date;
+    });
+</script>
+{% endblock %}
