@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Contacts{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Contacts</h1>
+<form method="post" class="max-w-md mb-6 space-y-4 bg-white p-6 rounded shadow">
+    <div>
+        <label for="phone_number" class="block font-semibold mb-1">Phone Number</label>
+        <input type="text" id="phone_number" name="phone_number" required class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <div>
+        <label for="display_name" class="block font-semibold mb-1">Display Name</label>
+        <input type="text" id="display_name" name="display_name" class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Add / Update Contact</button>
+</form>
+<table class="min-w-full table-auto border-collapse border border-gray-300 bg-white rounded shadow">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border border-gray-300 px-4 py-2">Phone Number</th>
+            <th class="border border-gray-300 px-4 py-2">Display Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in contacts %}
+        <tr>
+            <td class="border border-gray-300 px-4 py-2">{{ c.phone_number }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ c.display_name or '' }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2" class="text-center p-4">No contacts found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
