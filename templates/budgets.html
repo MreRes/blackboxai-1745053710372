@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Budgets{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Budgets</h1>
+<form method="post" class="max-w-md mb-6 space-y-4 bg-white p-6 rounded shadow">
+    <div>
+        <label for="category" class="block font-semibold mb-1">Category</label>
+        <input type="text" id="category" name="category" required class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <div>
+        <label for="amount" class="block font-semibold mb-1">Amount (Rp)</label>
+        <input type="number" step="0.01" id="amount" name="amount" required class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <div>
+        <label for="period" class="block font-semibold mb-1">Period</label>
+        <select id="period" name="period" required class="w-full border border-gray-300 rounded px-3 py-2">
+            <option value="monthly">Monthly</option>
+            <option value="weekly">Weekly</option>
+        </select>
+    </div>
+    <div>
+        <label for="start_date" class="block font-semibold mb-1">Start Date</label>
+        <input type="date" id="start_date" name="start_date" class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <div>
+        <label for="end_date" class="block font-semibold mb-1">End Date</label>
+        <input type="date" id="end_date" name="end_date" class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Add Budget</button>
+</form>
+<table class="min-w-full table-auto border-collapse border border-gray-300 bg-white rounded shadow">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border border-gray-300 px-4 py-2">Category</th>
+            <th class="border border-gray-300 px-4 py-2">Amount (Rp)</th>
+            <th class="border border-gray-300 px-4 py-2">Period</th>
+            <th class="border border-gray-300 px-4 py-2">Start Date</th>
+            <th class="border border-gray-300 px-4 py-2">End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for b in budgets %}
+        <tr>
+            <td class="border border-gray-300 px-4 py-2">{{ b.category }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ b.amount | int | format_number }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ b.period }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ b.start_date or '' }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ b.end_date or '' }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5" class="text-center p-4">No budgets found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
