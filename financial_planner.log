@@ -311,3 +311,384 @@
 2025-04-19 09:07:00,675 - financial_planner - INFO - Report generated: Income=0, Outcome=0, Balance=0
 2025-04-19 09:07:00,676 - financial_planner - ERROR - Error fetching transactions: no such column: t.sender_phone
 2025-04-19 09:08:01,634 - financial_planner - INFO - Fetched 0 contacts
+2025-04-19 21:35:06,298 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 21:35:06,309 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:06,580 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 21:35:06,580 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:08,166 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 21:35:08,166 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,695 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 21:35:30,695 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,695 - financial_planner - ERROR - Error adding budget for user 1: table budgets has no column named user_id
+2025-04-19 21:35:30,695 - financial_planner - ERROR - Error fetching budgets for user 1: no such column: user_id
+2025-04-19 21:35:30,696 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 21:35:30,696 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,696 - financial_planner - ERROR - Error adding goal for user 1: table goals has no column named user_id
+2025-04-19 21:35:30,696 - financial_planner - ERROR - Error fetching goals for user 1: no such column: user_id
+2025-04-19 21:35:30,696 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 21:35:30,697 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,697 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 21:35:30,697 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 21:35:30,697 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 21:35:30,697 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 21:35:30,698 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,698 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 21:35:30,698 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 21:35:30,698 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 21:35:30,698 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 21:35:30,699 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,699 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 21:35:30,699 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 21:35:30,699 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,700 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 21:35:30,700 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 21:35:30,700 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 21:35:30,700 - financial_planner - ERROR - Error adding goal for user 1: table goals has no column named user_id
+2025-04-19 21:35:30,701 - financial_planner - ERROR - Error fetching goals for user 1: no such column: user_id
+2025-04-19 22:01:26,591 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:01:26,593 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:01:26,896 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:01:26,896 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:52,469 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:03:52,469 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,980 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,981 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,981 - financial_planner - ERROR - Error adding budget for user 1: table budgets has no column named user_id
+2025-04-19 22:03:57,981 - financial_planner - ERROR - Error fetching budgets for user 1: no such column: user_id
+2025-04-19 22:03:57,982 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,982 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,982 - financial_planner - ERROR - Error adding goal for user 1: table goals has no column named user_id
+2025-04-19 22:03:57,982 - financial_planner - ERROR - Error fetching goals for user 1: no such column: user_id
+2025-04-19 22:03:57,982 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,983 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,983 - financial_planner - ERROR - Error generating notifications for user 1: no such column: user_id
+2025-04-19 22:03:57,983 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,984 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,984 - financial_planner - ERROR - Error adding budget for user 1: table budgets has no column named user_id
+2025-04-19 22:03:57,984 - financial_planner - ERROR - Error fetching budgets for user 1: no such column: user_id
+2025-04-19 22:03:57,984 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,985 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,985 - financial_planner - ERROR - Error adding goal for user 1: table goals has no column named user_id
+2025-04-19 22:03:57,985 - financial_planner - ERROR - Error fetching goals for user 1: no such column: user_id
+2025-04-19 22:03:57,985 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,985 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,986 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:03:57,986 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 22:03:57,986 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 22:03:57,986 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,986 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,987 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:03:57,987 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 22:03:57,987 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 22:03:57,987 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,987 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,988 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:03:57,988 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,988 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,988 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:03:57,988 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:03:57,989 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:03:57,989 - financial_planner - ERROR - Error adding goal for user 1: table goals has no column named user_id
+2025-04-19 22:03:57,989 - financial_planner - ERROR - Error fetching goals for user 1: no such column: user_id
+2025-04-19 22:04:59,841 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:04:59,841 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,491 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,492 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,492 - financial_planner - INFO - Budget added for user 1: Food, 1000, monthly
+2025-04-19 22:06:10,492 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:06:10,492 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,493 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,493 - financial_planner - INFO - Goal added for user 1: Vacation, 5000, None
+2025-04-19 22:06:10,493 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:06:10,493 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,493 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,494 - financial_planner - INFO - Notifications generated for user 1: []
+2025-04-19 22:06:10,494 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,494 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,495 - financial_planner - INFO - Budget added for user 1: TestCategory, 2000, monthly
+2025-04-19 22:06:10,495 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:06:10,495 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,495 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,495 - financial_planner - INFO - Goal added for user 1: TestGoal, 5000, None
+2025-04-19 22:06:10,496 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:06:10,496 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,496 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,496 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:06:10,496 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 22:06:10,496 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 22:06:10,497 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,497 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,497 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:06:10,497 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 22:06:10,497 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 22:06:10,498 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,498 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,498 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:06:10,498 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,499 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,499 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:06:10,499 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:06:10,499 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:06:10,499 - financial_planner - INFO - Goal added for user 1: ProgressGoal, 10000, None
+2025-04-19 22:06:10,499 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:06:10,500 - financial_planner - INFO - Goal 1 progress updated to 3000
+2025-04-19 22:06:10,500 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:08:16,110 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,112 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,112 - financial_planner - INFO - Budget added for user 1: Food, 1000, monthly
+2025-04-19 22:08:16,112 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:08:16,112 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,113 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,113 - financial_planner - INFO - Goal added for user 1: Vacation, 5000, None
+2025-04-19 22:08:16,113 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:08:16,113 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,114 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,114 - financial_planner - INFO - Notifications generated for user 1: []
+2025-04-19 22:08:16,114 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,114 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,115 - financial_planner - INFO - Budget added for user 1: TestCategory, 2000, monthly
+2025-04-19 22:08:16,115 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:08:16,115 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,115 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,115 - financial_planner - INFO - Goal added for user 1: TestGoal, 5000, None
+2025-04-19 22:08:16,115 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:08:16,116 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,116 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,116 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:08:16,116 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 22:08:16,116 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 22:08:16,117 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,117 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,117 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:08:16,117 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 22:08:16,117 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 22:08:16,118 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,118 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,118 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:08:16,118 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,119 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,119 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:08:16,119 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:08:16,120 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:08:16,120 - financial_planner - INFO - Goal added for user 1: ProgressGoal, 10000, None
+2025-04-19 22:08:16,120 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:08:16,120 - financial_planner - INFO - Goal 1 progress updated to 3000
+2025-04-19 22:08:16,120 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:09:42,075 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,076 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,076 - financial_planner - INFO - Budget added for user 1: Food, 1000, monthly
+2025-04-19 22:09:42,076 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:09:42,076 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,077 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,077 - financial_planner - INFO - Goal added for user 1: Vacation, 5000, None
+2025-04-19 22:09:42,077 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:09:42,077 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,078 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,078 - financial_planner - INFO - Notifications generated for user 1: []
+2025-04-19 22:09:42,079 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,079 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,079 - financial_planner - INFO - Budget added for user 1: TestCategory, 2000, monthly
+2025-04-19 22:09:42,079 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:09:42,080 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,080 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,080 - financial_planner - INFO - Goal added for user 1: TestGoal, 5000, None
+2025-04-19 22:09:42,080 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:09:42,080 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,081 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,081 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:09:42,081 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 22:09:42,081 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 22:09:42,081 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,082 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,082 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:09:42,082 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 22:09:42,082 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 22:09:42,082 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,083 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,083 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:09:42,083 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,084 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,084 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:09:42,084 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:09:42,084 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:09:42,084 - financial_planner - INFO - Goal added for user 1: ProgressGoal, 10000, None
+2025-04-19 22:09:42,084 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:09:42,085 - financial_planner - INFO - Goal 1 progress updated to 3000
+2025-04-19 22:09:42,085 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:12:33,465 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:12:33,468 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:12:56,782 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:12:56,783 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:13:29,087 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:13:29,087 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:51,551 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:25:51,573 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:52,842 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:25:52,843 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:55,078 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:25:55,078 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,722 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:25:59,723 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,735 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,736 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,736 - financial_planner - INFO - Budget added for user 1: Food, 1000, monthly
+2025-04-19 22:25:59,737 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:25:59,737 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,737 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,737 - financial_planner - INFO - Goal added for user 1: Vacation, 5000, None
+2025-04-19 22:25:59,737 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:25:59,738 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,738 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,738 - financial_planner - INFO - Notifications generated for user 1: []
+2025-04-19 22:25:59,749 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:25:59,752 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:25:59,753 - financial_planner - ERROR - Error fetching transactions for user 1: no such column: t.sender_phone
+2025-04-19 22:25:59,754 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:25:59,755 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:25:59,756 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:25:59,757 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:25:59,758 - financial_planner - ERROR - Error generating notifications for user 1: no such column: user_id
+2025-04-19 22:25:59,771 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,771 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,772 - financial_planner - INFO - Budget added for user 1: TestCategory, 2000, monthly
+2025-04-19 22:25:59,772 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:25:59,772 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,773 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,773 - financial_planner - INFO - Goal added for user 1: TestGoal, 5000, None
+2025-04-19 22:25:59,773 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:25:59,773 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,774 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,774 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:25:59,774 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 22:25:59,774 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 22:25:59,774 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,775 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,775 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:25:59,775 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 22:25:59,775 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 22:25:59,776 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,776 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,776 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:25:59,777 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,777 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,777 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:25:59,778 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:25:59,778 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:25:59,778 - financial_planner - INFO - Goal added for user 1: ProgressGoal, 10000, None
+2025-04-19 22:25:59,778 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:25:59,778 - financial_planner - INFO - Goal 1 progress updated to 3000
+2025-04-19 22:25:59,779 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:29:16,737 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:29:16,737 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:17,966 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:29:17,966 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,065 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:29:19,066 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,072 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,073 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,073 - financial_planner - INFO - Budget added for user 1: Food, 1000, monthly
+2025-04-19 22:29:19,073 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:29:19,074 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,074 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,074 - financial_planner - INFO - Goal added for user 1: Vacation, 5000, None
+2025-04-19 22:29:19,074 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:29:19,074 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,075 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,075 - financial_planner - INFO - Notifications generated for user 1: []
+2025-04-19 22:29:19,080 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:29:19,081 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:29:19,082 - financial_planner - ERROR - Error fetching transactions for user 1: no such column: t.sender_phone
+2025-04-19 22:29:19,083 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:29:19,084 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:29:19,085 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:29:19,086 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:29:19,087 - financial_planner - ERROR - Error generating notifications for user 1: no such column: user_id
+2025-04-19 22:29:19,095 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,095 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,095 - financial_planner - INFO - Budget added for user 1: TestCategory, 2000, monthly
+2025-04-19 22:29:19,095 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:29:19,096 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,096 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,096 - financial_planner - INFO - Goal added for user 1: TestGoal, 5000, None
+2025-04-19 22:29:19,096 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:29:19,096 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,097 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,097 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:29:19,097 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 22:29:19,097 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 22:29:19,097 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,097 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,098 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:29:19,098 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 22:29:19,098 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 22:29:19,098 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,098 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,099 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:29:19,099 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,099 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,099 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:29:19,099 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:29:19,100 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:29:19,100 - financial_planner - INFO - Goal added for user 1: ProgressGoal, 10000, None
+2025-04-19 22:29:19,100 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:29:19,100 - financial_planner - INFO - Goal 1 progress updated to 3000
+2025-04-19 22:29:19,100 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:30:47,261 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:30:47,263 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,419 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:31:06,419 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,426 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,427 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,427 - financial_planner - INFO - Budget added for user 1: Food, 1000, monthly
+2025-04-19 22:31:06,427 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:31:06,427 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,428 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,428 - financial_planner - INFO - Goal added for user 1: Vacation, 5000, None
+2025-04-19 22:31:06,428 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:31:06,428 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,429 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,429 - financial_planner - INFO - Notifications generated for user 1: []
+2025-04-19 22:31:06,437 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:31:06,438 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:31:06,439 - financial_planner - ERROR - Error fetching transactions for user 1: no such column: t.sender_phone
+2025-04-19 22:31:06,452 - financial_planner - ERROR - Error fetching transactions for user 1: no such column: t.sender_phone
+2025-04-19 22:31:06,453 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:31:06,454 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:31:06,455 - financial_planner - ERROR - Error fetching transactions for user 1: no such column: t.sender_phone
+2025-04-19 22:31:06,455 - financial_planner - INFO - User admin logged out.
+2025-04-19 22:31:06,459 - financial_planner - INFO - User admin logged in.
+2025-04-19 22:31:06,460 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-19 22:31:06,460 - financial_planner - ERROR - Error fetching transactions for user 1: no such column: t.sender_phone
+2025-04-19 22:31:06,461 - financial_planner - ERROR - Error generating notifications for user 1: no such column: user_id
+2025-04-19 22:31:06,464 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,464 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,464 - financial_planner - INFO - Budget added for user 1: TestCategory, 2000, monthly
+2025-04-19 22:31:06,464 - financial_planner - INFO - Fetched 1 budgets for user 1
+2025-04-19 22:31:06,465 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,465 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,465 - financial_planner - INFO - Goal added for user 1: TestGoal, 5000, None
+2025-04-19 22:31:06,465 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:31:06,465 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,466 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,466 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:31:06,466 - financial_planner - INFO - Transaction added: user_id=1, type=income, amount=1000, description=Test income, sender_phone=None, date=None
+2025-04-19 22:31:06,466 - financial_planner - INFO - Report generated for user 1: Income=1000.0, Outcome=0, Balance=1000.0
+2025-04-19 22:31:06,466 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,467 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,467 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=0, Balance=0
+2025-04-19 22:31:06,467 - financial_planner - INFO - Transaction added: user_id=1, type=outcome, amount=500, description=Test outcome, sender_phone=None, date=None
+2025-04-19 22:31:06,467 - financial_planner - INFO - Report generated for user 1: Income=0, Outcome=500.0, Balance=-500.0
+2025-04-19 22:31:06,467 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,468 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,468 - financial_planner - INFO - Daily report for 2025-04-19: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:31:06,468 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,468 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,468 - financial_planner - INFO - Monthly report for 2025-04: {'income': 0, 'outcome': 0, 'balance': 0}
+2025-04-19 22:31:06,469 - financial_planner - INFO - Connected to database :memory:
+2025-04-19 22:31:06,469 - financial_planner - INFO - Database tables created or verified.
+2025-04-19 22:31:06,469 - financial_planner - INFO - Goal added for user 1: ProgressGoal, 10000, None
+2025-04-19 22:31:06,469 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:31:06,469 - financial_planner - INFO - Goal 1 progress updated to 3000
+2025-04-19 22:31:06,469 - financial_planner - INFO - Fetched 1 goals for user 1
+2025-04-19 22:39:55,890 - financial_planner - INFO - Connected to database financial_data.db
+2025-04-19 22:39:55,891 - financial_planner - INFO - Database tables created or verified.
