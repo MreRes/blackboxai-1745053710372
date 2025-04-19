@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Transactions{% endblock %}
 {% block content %}
-<h1 class="text-3xl font-bold mb-6">Transactions</h1>
+<h1 class="text-3xl font-bold mb-6 flex justify-between items-center">
+    Transactions
+    <a href="{{ url_for('export_transactions') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-sm">
+        Export CSV
+    </a>
+</h1>
 <table class="min-w-full table-auto border-collapse border border-gray-300 mb-6">
     <thead>
         <tr class="bg-gray-200">
