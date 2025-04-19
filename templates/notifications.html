@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Notifications{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Notifications</h1>
+{% if notifications %}
+<ul class="list-disc pl-6 space-y-2">
+    {% for note in notifications %}
+    <li class="bg-yellow-100 p-4 rounded shadow">{{ note }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p class="text-gray-600">No notifications at this time.</p>
+{% endif %}
+{% endblock %}
