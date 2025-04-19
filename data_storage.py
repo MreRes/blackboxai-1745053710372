@@ -26,23 +26,38 @@ class DataStorage:
             cursor.execute('DROP TABLE IF EXISTS income')
             cursor.execute('DROP TABLE IF EXISTS outcome')
 
+            # Create users table
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    username TEXT UNIQUE NOT NULL,
+                    password_hash TEXT NOT NULL
+                )
+            ''')
+
             # Create transactions table to replace income/outcome
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS transactions (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
                     type TEXT CHECK(type IN ('income', 'outcome')) NOT NULL,
                     amount REAL NOT NULL,
                     description TEXT,
                     sender_phone TEXT,
-                    date TEXT DEFAULT (datetime('now','localtime'))
+                    date TEXT DEFAULT (datetime('now','localtime')),
+                    FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             ''')
+
             # Create contacts table
             cursor.execute('''
                 CREATE TABLE IF NOT EXISTS contacts (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    phone_number TEXT UNIQUE NOT NULL,
-                    display_name TEXT
+                    user_id INTEGER NOT NULL,
+                    phone_number TEXT NOT NULL,
+                    display_name TEXT,
+                    UNIQUE(user_id, phone_number),
+                    FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             ''')
 
@@ -74,43 +89,43 @@ class DataStorage:
         except Error as e:
             logger.error(f"Error creating tables: {e}")
 
-    def add_transaction(self, type_: str, amount: float, description: str = '', sender_phone: str = None, date: str = None):
+    def add_transaction(self, user_id: int, type_: str, amount: float, description: str = '', sender_phone: str = None, date: str = None):
         try:
             cursor = self.conn.cursor()
             if date:
-                cursor.execute('INSERT INTO transactions (type, amount, description, sender_phone, date) VALUES (?, ?, ?, ?, ?)',
-                               (type_, amount, description, sender_phone, date))
+                cursor.execute('INSERT INTO transactions (user_id, type, amount, description, sender_phone, date) VALUES (?, ?, ?, ?, ?, ?)',
+                               (user_id, type_, amount, description, sender_phone, date))
             else:
-                cursor.execute('INSERT INTO transactions (type, amount, description, sender_phone) VALUES (?, ?, ?, ?)',
-                               (type_, amount, description, sender_phone))
+                cursor.execute('INSERT INTO transactions (user_id, type, amount, description, sender_phone) VALUES (?, ?, ?, ?, ?)',
+                               (user_id, type_, amount, description, sender_phone))
             self.conn.commit()
-            logger.info(f"Transaction added: {type_}, {amount}, {description}, {sender_phone}, {date}")
+            logger.info(f"Transaction added: user_id={user_id}, type={type_}, amount={amount}, description={description}, sender_phone={sender_phone}, date={date}")
         except Error as e:
             logger.error(f"Error adding transaction: {e}")
 
-    def get_report(self):
+    def get_report(self, user_id: int):
         try:
             cursor = self.conn.cursor()
-            cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='income'")
+            cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='income' AND user_id=?", (user_id,))
             total_income = cursor.fetchone()[0] or 0
-            cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='outcome'")
+            cursor.execute("SELECT SUM(amount) FROM transactions WHERE type='outcome' AND user_id=?", (user_id,))
             total_outcome = cursor.fetchone()[0] or 0
             balance = total_income - total_outcome
-            logger.info(f"Report generated: Income={total_income}, Outcome={total_outcome}, Balance={balance}")
+            logger.info(f"Report generated for user {user_id}: Income={total_income}, Outcome={total_outcome}, Balance={balance}")
             return {
                 'total_income': total_income,
                 'total_outcome': total_outcome,
                 'balance': balance
             }
         except Error as e:
-            logger.error(f"Error generating report: {e}")
+            logger.error(f"Error generating report for user {user_id}: {e}")
             return None
 
-    def get_transactions(self, start_date: str = None, end_date: str = None, type_: str = None):
+    def get_transactions(self, user_id: int, start_date: str = None, end_date: str = None, type_: str = None):
         try:
             cursor = self.conn.cursor()
-            query = "SELECT t.id, t.type, t.amount, t.description, t.date, t.sender_phone, c.display_name FROM transactions t LEFT JOIN contacts c ON t.sender_phone = c.phone_number WHERE 1=1"
-            params = []
+            query = "SELECT t.id, t.type, t.amount, t.description, t.date, t.sender_phone, c.display_name FROM transactions t LEFT JOIN contacts c ON t.sender_phone = c.phone_number WHERE t.user_id = ?"
+            params = [user_id]
             if start_date:
                 query += " AND t.date >= ?"
                 params.append(start_date)
@@ -134,26 +149,26 @@ class DataStorage:
                     'sender_phone': row[5],
                     'display_name': row[6]
                 })
-            logger.info(f"Fetched {len(transactions)} transactions")
+            logger.info(f"Fetched {len(transactions)} transactions for user {user_id}")
             return transactions
         except Error as e:
-            logger.error(f"Error fetching transactions: {e}")
+            logger.error(f"Error fetching transactions for user {user_id}: {e}")
             return []
 
-    def add_budget(self, category: str, amount: float, period: str, start_date: str = None, end_date: str = None):
+    def add_budget(self, user_id: int, category: str, amount: float, period: str, start_date: str = None, end_date: str = None):
         try:
             cursor = self.conn.cursor()
-            cursor.execute('INSERT INTO budgets (category, amount, period, start_date, end_date) VALUES (?, ?, ?, ?, ?)',
-                           (category, amount, period, start_date, end_date))
+            cursor.execute('INSERT INTO budgets (user_id, category, amount, period, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)',
+                           (user_id, category, amount, period, start_date, end_date))
             self.conn.commit()
-            logger.info(f"Budget added: {category}, {amount}, {period}")
+            logger.info(f"Budget added for user {user_id}: {category}, {amount}, {period}")
         except Error as e:
-            logger.error(f"Error adding budget: {e}")
+            logger.error(f"Error adding budget for user {user_id}: {e}")
 
-    def get_budgets(self):
+    def get_budgets(self, user_id: int):
         try:
             cursor = self.conn.cursor()
-            cursor.execute('SELECT id, category, amount, period, start_date, end_date FROM budgets')
+            cursor.execute('SELECT id, category, amount, period, start_date, end_date FROM budgets WHERE user_id = ?', (user_id,))
             rows = cursor.fetchall()
             budgets = []
             for row in rows:
@@ -165,34 +180,34 @@ class DataStorage:
                     'start_date': row[4],
                     'end_date': row[5]
                 })
-            logger.info(f"Fetched {len(budgets)} budgets")
+            logger.info(f"Fetched {len(budgets)} budgets for user {user_id}")
             return budgets
         except Error as e:
-            logger.error(f"Error fetching budgets: {e}")
+            logger.error(f"Error fetching budgets for user {user_id}: {e}")
             return []
 
-    def add_contact(self, phone_number: str, display_name: str = None):
+    def add_contact(self, user_id: int, phone_number: str, display_name: str = None):
         try:
             cursor = self.conn.cursor()
-            cursor.execute('INSERT OR IGNORE INTO contacts (phone_number, display_name) VALUES (?, ?)', (phone_number, display_name))
+            cursor.execute('INSERT OR IGNORE INTO contacts (user_id, phone_number, display_name) VALUES (?, ?, ?)', (user_id, phone_number, display_name))
             self.conn.commit()
-            logger.info(f"Contact added: {phone_number} -> {display_name}")
+            logger.info(f"Contact added for user {user_id}: {phone_number} -> {display_name}")
         except Error as e:
-            logger.error(f"Error adding contact: {e}")
+            logger.error(f"Error adding contact for user {user_id}: {e}")
 
-    def update_contact_name(self, phone_number: str, display_name: str):
+    def update_contact_name(self, user_id: int, phone_number: str, display_name: str):
         try:
             cursor = self.conn.cursor()
-            cursor.execute('UPDATE contacts SET display_name = ? WHERE phone_number = ?', (display_name, phone_number))
+            cursor.execute('UPDATE contacts SET display_name = ? WHERE user_id = ? AND phone_number = ?', (display_name, user_id, phone_number))
             self.conn.commit()
-            logger.info(f"Contact updated: {phone_number} -> {display_name}")
+            logger.info(f"Contact updated for user {user_id}: {phone_number} -> {display_name}")
         except Error as e:
-            logger.error(f"Error updating contact: {e}")
+            logger.error(f"Error updating contact for user {user_id}: {e}")
 
-    def get_contacts(self):
+    def get_contacts(self, user_id: int):
         try:
             cursor = self.conn.cursor()
-            cursor.execute('SELECT phone_number, display_name FROM contacts')
+            cursor.execute('SELECT phone_number, display_name FROM contacts WHERE user_id = ?', (user_id,))
             rows = cursor.fetchall()
             contacts = []
             for row in rows:
@@ -200,21 +215,21 @@ class DataStorage:
                     'phone_number': row[0],
                     'display_name': row[1]
                 })
-            logger.info(f"Fetched {len(contacts)} contacts")
+            logger.info(f"Fetched {len(contacts)} contacts for user {user_id}")
             return contacts
         except Error as e:
-            logger.error(f"Error fetching contacts: {e}")
+            logger.error(f"Error fetching contacts for user {user_id}: {e}")
             return []
 
-    def add_goal(self, name: str, target_amount: float, deadline: str = None):
+    def add_goal(self, user_id: int, name: str, target_amount: float, deadline: str = None):
         try:
             cursor = self.conn.cursor()
-            cursor.execute('INSERT INTO goals (name, target_amount, deadline) VALUES (?, ?, ?)',
-                           (name, target_amount, deadline))
+            cursor.execute('INSERT INTO goals (user_id, name, target_amount, deadline) VALUES (?, ?, ?, ?)',
+                           (user_id, name, target_amount, deadline))
             self.conn.commit()
-            logger.info(f"Goal added: {name}, {target_amount}, {deadline}")
+            logger.info(f"Goal added for user {user_id}: {name}, {target_amount}, {deadline}")
         except Error as e:
-            logger.error(f"Error adding goal: {e}")
+            logger.error(f"Error adding goal for user {user_id}: {e}")
 
     def update_goal_progress(self, goal_id: int, current_amount: float):
         try:
@@ -225,10 +240,10 @@ class DataStorage:
         except Error as e:
             logger.error(f"Error updating goal progress: {e}")
 
-    def get_goals(self):
+    def get_goals(self, user_id: int):
         try:
             cursor = self.conn.cursor()
-            cursor.execute('SELECT id, name, target_amount, current_amount, deadline FROM goals')
+            cursor.execute('SELECT id, name, target_amount, current_amount, deadline FROM goals WHERE user_id = ?', (user_id,))
             rows = cursor.fetchall()
             goals = []
             for row in rows:
@@ -239,10 +254,10 @@ class DataStorage:
                     'current_amount': row[3],
                     'deadline': row[4]
                 })
-            logger.info(f"Fetched {len(goals)} goals")
+            logger.info(f"Fetched {len(goals)} goals for user {user_id}")
             return goals
         except Error as e:
-            logger.error(f"Error fetching goals: {e}")
+            logger.error(f"Error fetching goals for user {user_id}: {e}")
             return []
 
     def get_daily_report(self, date: str):
@@ -282,3 +297,47 @@ class DataStorage:
         except Error as e:
             logger.error(f"Error generating monthly report: {e}")
             return None
+
+    def get_notifications(self, user_id: int):
+        try:
+            cursor = self.conn.cursor()
+            notifications = []
+
+            # Check for budgets ending soon (within 7 days)
+            cursor.execute('''
+                SELECT category, end_date FROM budgets
+                WHERE user_id = ? AND end_date IS NOT NULL AND date(end_date) <= date('now', '+7 days') AND date(end_date) >= date('now')
+            ''', (user_id,))
+            budget_rows = cursor.fetchall()
+            for category, end_date in budget_rows:
+                notifications.append(f"Budget '{category}' is ending on {end_date}.")
+
+            # Check for goals with deadlines soon (within 7 days)
+            cursor.execute('''
+                SELECT name, deadline FROM goals
+                WHERE user_id = ? AND deadline IS NOT NULL AND date(deadline) <= date('now', '+7 days') AND date(deadline) >= date('now')
+            ''', (user_id,))
+            goal_rows = cursor.fetchall()
+            for name, deadline in goal_rows:
+                notifications.append(f"Goal '{name}' deadline is on {deadline}.")
+
+            # Check for unusual spending: outcome > 2x average outcome in last 30 days
+            cursor.execute('''
+                SELECT AVG(amount) FROM transactions
+                WHERE user_id = ? AND type = 'outcome' AND date(date) >= date('now', '-30 days')
+            ''', (user_id,))
+            avg_outcome = cursor.fetchone()[0] or 0
+
+            cursor.execute('''
+                SELECT date, amount FROM transactions
+                WHERE user_id = ? AND type = 'outcome' AND amount > ? AND date(date) >= date('now', '-7 days')
+            ''', (user_id, 2 * avg_outcome))
+            unusual_rows = cursor.fetchall()
+            for date_, amount in unusual_rows:
+                notifications.append(f"Unusual spending of Rp {amount} on {date_}.")
+
+            logger.info(f"Notifications generated for user {user_id}: {notifications}")
+            return notifications
+        except Error as e:
+            logger.error(f"Error generating notifications for user {user_id}: {e}")
+            return []
