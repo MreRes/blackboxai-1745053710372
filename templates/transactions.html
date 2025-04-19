@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Transactions{% endblock %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-6">Transactions</h1>
+<table class="min-w-full table-auto border-collapse border border-gray-300 mb-6">
+    <thead>
+        <tr class="bg-gray-200">
+            <th class="border border-gray-300 px-4 py-2">Date</th>
+            <th class="border border-gray-300 px-4 py-2">Type</th>
+            <th class="border border-gray-300 px-4 py-2">Amount (Rp)</th>
+            <th class="border border-gray-300 px-4 py-2">Description</th>
+            <th class="border border-gray-300 px-4 py-2">Sender</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in transactions %}
+        <tr>
+            <td class="border border-gray-300 px-4 py-2">{{ t.date }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ t.type.capitalize() }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ t.amount | int | format_number }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ t.description }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ t.display_name if t.display_name else (t.sender_phone if t.sender_phone else 'Unknown') }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5" class="text-center p-4">No transactions found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
