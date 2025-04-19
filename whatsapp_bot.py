@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 from logger_config import setup_logger
 
@@ -13,10 +14,13 @@ class WhatsAppBot:
         self.driver = None
 
     def start(self):
+        import platform
         logger.info("Starting WhatsApp Bot...")
         options = Options()
         options.add_argument("--user-data-dir=./User_Data")  # To keep session
-        service = Service(self.driver_path)
+
+        # Use webdriver_manager to get ChromeDriver automatically
+        service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.get("https://web.whatsapp.com")
         logger.info("Please scan the QR code to log in.")
