@@ -40,8 +40,11 @@ class WhatsAppBot:
                 pass
             time.sleep(2)
 
-    def listen_messages(self):
-        logger.info("Listening for incoming messages...")
+    import asyncio
+    import concurrent.futures
+
+    async def listen_messages_async(self):
+        logger.info("Listening for incoming messages asynchronously...")
         from ai_model import FinancialPlannerAI
         from data_storage import DataStorage
         import re
@@ -49,117 +52,128 @@ class WhatsAppBot:
         ai = FinancialPlannerAI()
         storage = DataStorage()
 
-        while True:
+        loop = asyncio.get_event_loop()
+        executor = concurrent.futures.ThreadPoolExecutor()
+
+        async def process_chat(chat):
             try:
-                # Locate unread messages (simplified example)
-                unread_chats = self.driver.find_elements(By.XPATH, '//span[@aria-label="Unread message"]')
-                for chat in unread_chats:
-                    parent = chat.find_element(By.XPATH, './../../..')
-                    chat_title = parent.find_element(By.XPATH, './/span[@dir="auto"]').text
-                    parent.click()
-                    time.sleep(2)
+                parent = await loop.run_in_executor(executor, lambda: chat.find_element(By.XPATH, './../../..'))
+                chat_title = await loop.run_in_executor(executor, lambda: parent.find_element(By.XPATH, './/span[@dir="auto"]').text)
+                await loop.run_in_executor(executor, parent.click)
+                await asyncio.sleep(2)
 
-                    # Get last message text
-                    messages = self.driver.find_elements(By.XPATH, '//div[contains(@class,"message-in")]//span[@class="selectable-text copyable-text"]')
-                    if not messages:
-                        continue
-                    last_message = messages[-1].text.strip()
-                    logger.info(f"Received message from {chat_title}: {last_message}")
+                messages = await loop.run_in_executor(executor, lambda: self.driver.find_elements(By.XPATH, '//div[contains(@class,"message-in")]//span[@class="selectable-text copyable-text"]'))
+                if not messages:
+                    return
+                last_message = messages[-1].text.strip()
+                logger.info(f"Received message from {chat_title}: {last_message}")
 
-                    # Parse message for income/outcome
-                    # Improved patterns to capture numbers with separators and informal words
-                    income_pattern = re.compile(r'(pemasukan|income|masuk|terima|dapat|nambah|tambah).*?([\d.,]+)', re.IGNORECASE)
-                    outcome_pattern = re.compile(r'(pengeluaran|keluar|pakai|bayar|kurang|utang|keluar).*?([\d.,]+)', re.IGNORECASE)
+                income_pattern = re.compile(r'(pemasukan|income|masuk|terima|dapat|nambah|tambah|deposit|credit).*?([\d.,]+)', re.IGNORECASE)
+                outcome_pattern = re.compile(r'(pengeluaran|keluar|pakai|bayar|kurang|utang|debit|withdraw).*?([\d.,]+)', re.IGNORECASE)
 
-                    def parse_amount(text):
-                        # Remove dots and commas, then convert to float
-                        cleaned = text.replace('.', '').replace(',', '')
-                        try:
-                            return float(cleaned)
-                        except:
-                            return None
+                def parse_amount(text):
+                    cleaned = text.replace('.', '').replace(',', '')
+                    try:
+                        return float(cleaned)
+                    except:
+                        return None
 
-                    amount = None
-                    description = last_message
-                    if income_pattern.search(last_message):
-                        amount_match = income_pattern.search(last_message)
-                        amount = parse_amount(amount_match.group(2))
-                        if amount is not None:
-                            storage.add_income(amount, description, sender_phone=chat_title)
-                            response_text = f"Pemasukan sebesar Rp {amount} telah dicatat."
-                        else:
-                            response_text = "Maaf, saya tidak dapat mengenali jumlah pemasukan."
-                    elif outcome_pattern.search(last_message):
-                        amount_match = outcome_pattern.search(last_message)
-                        amount = parse_amount(amount_match.group(2))
-                        if amount is not None:
-                            storage.add_outcome(amount, description, sender_phone=chat_title)
-                            response_text = f"Pengeluaran sebesar Rp {amount} telah dicatat."
-                        else:
-                            response_text = "Maaf, saya tidak dapat mengenali jumlah pengeluaran."
+                amount = None
+                description = last_message
+                if income_pattern.search(last_message):
+                    amount_match = income_pattern.search(last_message)
+                    amount = parse_amount(amount_match.group(2))
+                    if amount is not None:
+                        user_id = storage.get_user_id_by_phone(chat_title)
+                        if user_id is None:
+                            user_id = 1  # default user id fallback
+                        storage.add_income(user_id, amount, description, sender_phone=chat_title)
+                        response_text = f"Pemasukan sebesar Rp {amount} telah dicatat."
+                    else:
+                        response_text = "Maaf, saya tidak dapat mengenali jumlah pemasukan."
+                elif outcome_pattern.search(last_message):
+                    amount_match = outcome_pattern.search(last_message)
+                    amount = parse_amount(amount_match.group(2))
+                    if amount is not None:
+                        user_id = storage.get_user_id_by_phone(chat_title)
+                        if user_id is None:
+                            user_id = 1  # default user id fallback
+                        storage.add_outcome(user_id, amount, description, sender_phone=chat_title)
+                        response_text = f"Pengeluaran sebesar Rp {amount} telah dicatat."
+                    else:
+                        response_text = "Maaf, saya tidak dapat mengenali jumlah pengeluaran."
                     elif last_message.lower() in ['laporan', 'report', 'rekap']:
-                        report = storage.get_report()
+                        user_id = storage.get_user_id_by_phone(chat_title)
+                        if user_id is None:
+                            user_id = 1
+                        report = storage.get_report(user_id)
                         if report:
                             response_text = (f"Laporan Keuangan:\n"
                                              f"Pemasukan: Rp {report['total_income']}\n"
                                              f"Pengeluaran: Rp {report['total_outcome']}\n"
-                                             f"Saldo: Rp {report['balance']}")
+                                             f"Saldo: Rp {report['balance']}\n\n"
+                                             f"Untuk laporan lengkap, kunjungi: http://localhost:5000")
                         else:
                             response_text = "Maaf, tidak dapat mengambil laporan saat ini."
-                    elif last_message.lower().startswith('add budget'):
-                        # Expected format: add budget category amount period
-                        try:
-                            parts = last_message.split()
-                            if len(parts) >= 5:
-                                category = parts[2]
-                                amount = float(parts[3])
-                                period = parts[4]
-                                storage.add_budget(category, amount, period)
-                                response_text = f"Budget untuk kategori '{category}' sebesar Rp {amount} per {period} telah ditambahkan."
-                            else:
-                                response_text = "Format perintah budget salah. Gunakan: add budget <kategori> <jumlah> <periode>"
-                        except Exception as e:
-                            response_text = f"Terjadi kesalahan saat menambahkan budget: {e}"
-                    elif last_message.lower().startswith('show budgets'):
-                        budgets = storage.get_budgets()
-                        if budgets:
-                            response_text = "Daftar Budget:\n"
-                            for b in budgets:
-                                response_text += f"- {b['category']}: Rp {b['amount']} per {b['period']}\n"
+                elif last_message.lower().startswith('add budget'):
+                    try:
+                        parts = last_message.split()
+                        if len(parts) >= 5:
+                            category = parts[2]
+                            amount = float(parts[3])
+                            period = parts[4]
+                            storage.add_budget(category, amount, period)
+                            response_text = f"Budget untuk kategori '{category}' sebesar Rp {amount} per {period} telah ditambahkan."
                         else:
-                            response_text = "Belum ada budget yang tercatat."
-                    elif last_message.lower().startswith('add goal'):
-                        # Expected format: add goal name target_amount
-                        try:
-                            parts = last_message.split()
-                            if len(parts) >= 4:
-                                name = parts[2]
-                                target_amount = float(parts[3])
-                                storage.add_goal(name, target_amount)
-                                response_text = f"Goal '{name}' dengan target Rp {target_amount} telah ditambahkan."
-                            else:
-                                response_text = "Format perintah goal salah. Gunakan: add goal <nama> <target_jumlah>"
-                        except Exception as e:
-                            response_text = f"Terjadi kesalahan saat menambahkan goal: {e}"
-                    elif last_message.lower().startswith('show goals'):
-                        goals = storage.get_goals()
-                        if goals:
-                            response_text = "Daftar Goals:\n"
-                            for g in goals:
-                                response_text += f"- {g['name']}: Target Rp {g['target_amount']}, Saat ini Rp {g['current_amount']}\n"
-                        else:
-                            response_text = "Belum ada goal yang tercatat."
+                            response_text = "Format perintah budget salah. Gunakan: add budget <kategori> <jumlah> <periode>"
+                    except Exception as e:
+                        response_text = f"Terjadi kesalahan saat menambahkan budget: {e}"
+                elif last_message.lower().startswith('show budgets'):
+                    budgets = storage.get_budgets()
+                    if budgets:
+                        response_text = "Daftar Budget:\n"
+                        for b in budgets:
+                            response_text += f"- {b['category']}: Rp {b['amount']} per {b['period']}\n"
                     else:
-                        # Use AI to generate response
-                        response_text = ai.generate_response(last_message)
+                        response_text = "Belum ada budget yang tercatat."
+                elif last_message.lower().startswith('add goal'):
+                    try:
+                        parts = last_message.split()
+                        if len(parts) >= 4:
+                            name = parts[2]
+                            target_amount = float(parts[3])
+                            storage.add_goal(name, target_amount)
+                            response_text = f"Goal '{name}' dengan target Rp {target_amount} telah ditambahkan."
+                        else:
+                            response_text = "Format perintah goal salah. Gunakan: add goal <nama> <target_jumlah>"
+                    except Exception as e:
+                        response_text = f"Terjadi kesalahan saat menambahkan goal: {e}"
+                elif last_message.lower().startswith('show goals'):
+                    goals = storage.get_goals()
+                    if goals:
+                        response_text = "Daftar Goals:\n"
+                        for g in goals:
+                            response_text += f"- {g['name']}: Target Rp {g['target_amount']}, Saat ini Rp {g['current_amount']}\n"
+                    else:
+                        response_text = "Belum ada goal yang tercatat."
+                else:
+                    response_text = ai.generate_response(last_message)
 
-                    self.send_message(chat_title, response_text)
-                    logger.info(f"Sent response to {chat_title}: {response_text}")
+                await loop.run_in_executor(executor, lambda: self.send_message(chat_title, response_text))
+                logger.info(f"Sent response to {chat_title}: {response_text}")
 
-                time.sleep(5)
             except Exception as e:
-                logger.error(f"Error in listen_messages loop: {e}")
-                time.sleep(5)
+                logger.error(f"Error processing chat {chat}: {e}")
+
+        while True:
+            try:
+                unread_chats = await loop.run_in_executor(executor, lambda: self.driver.find_elements(By.XPATH, '//span[@aria-label="Unread message"]'))
+                tasks = [process_chat(chat) for chat in unread_chats]
+                await asyncio.gather(*tasks)
+                await asyncio.sleep(5)
+            except Exception as e:
+                logger.error(f"Error in listen_messages_async loop: {e}")
+                await asyncio.sleep(5)
 
     def send_message(self, chat_title: str, message: str):
         logger.info(f"Sending message to {chat_title}: {message}")
