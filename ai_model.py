@@ -6,15 +6,14 @@ logger = setup_logger()
 class FinancialPlannerAI:
     def __init__(self):
         logger.info("Loading AI model...")
-        # Load a conversational model suitable for Indonesian language
-        # For example, use a multilingual model or a specific Indonesian model if available
-        self.nlp = pipeline("conversational", model="microsoft/DialoGPT-medium")
+        # Change pipeline task from "conversational" to "text-generation"
+        self.nlp = pipeline("text-generation", model="microsoft/DialoGPT-medium")
         logger.info("AI model loaded.")
 
     def generate_response(self, input_text: str) -> str:
         logger.info(f"Generating response for input: {input_text}")
         try:
-            response = self.nlp(input_text)
+            response = self.nlp(input_text, max_length=100, num_return_sequences=1)
             # Extract generated text from response object
             if response and len(response) > 0:
                 generated_text = response[0]['generated_text'] if 'generated_text' in response[0] else str(response[0])
