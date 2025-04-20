@@ -1,3 +1,5 @@
+import concurrent.futures
+import asyncio
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -5,25 +7,42 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 from logger_config import setup_logger
+import threading
+import sys
+import os
+import argparse
 
 logger = setup_logger()
 
 class WhatsAppBot:
-    def __init__(self, driver_path: str):
+    def __init__(self, driver_path: str, user_data_dir: str = None):
         self.driver_path = driver_path
         self.driver = None
+        # Allow custom user data directory for session persistence
+        if user_data_dir:
+            self.user_data_dir = os.path.abspath(user_data_dir)
+        else:
+            self.user_data_dir = os.path.abspath("./User_Data")
 
     def start(self):
         import platform
         logger.info("Starting WhatsApp Bot...")
         options = Options()
-        options.add_argument("--user-data-dir=./User_Data")  # To keep session
+        # Use a persistent user data directory to save session
+        options.add_argument(f"--user-data-dir={self.user_data_dir}")  # To keep session
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--remote-debugging-port=9222")
+        # Uncomment the following line to run Chrome in headless mode for testing
+        # options.add_argument("--headless")
+        # Specify Chrome binary location if needed
+        options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 
         # Use webdriver_manager to get ChromeDriver automatically
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.get("https://web.whatsapp.com")
-        logger.info("Please scan the QR code to log in.")
+        logger.info(f"Please scan the QR code to log in if not already logged in. Session data stored in {self.user_data_dir}")
         # Wait for login
         self.wait_for_login()
 
@@ -39,9 +58,6 @@ class WhatsAppBot:
             except Exception:
                 pass
             time.sleep(2)
-
-    import asyncio
-    import concurrent.futures
 
     async def listen_messages_async(self):
         logger.info("Listening for incoming messages asynchronously...")
@@ -67,6 +83,10 @@ class WhatsAppBot:
                     return
                 last_message = messages[-1].text.strip()
                 logger.info(f"Received message from {chat_title}: {last_message}")
+
+                # Send acknowledgment message to confirm receipt
+                ack_message = "Pesan Anda telah diterima oleh bot."
+                await loop.run_in_executor(executor, lambda: self.send_message(chat_title, ack_message))
 
                 income_pattern = re.compile(r'(pemasukan|income|masuk|terima|dapat|nambah|tambah|deposit|credit).*?([\d.,]+)', re.IGNORECASE)
                 outcome_pattern = re.compile(r'(pengeluaran|keluar|pakai|bayar|kurang|utang|debit|withdraw).*?([\d.,]+)', re.IGNORECASE)
@@ -102,19 +122,19 @@ class WhatsAppBot:
                         response_text = f"Pengeluaran sebesar Rp {amount} telah dicatat."
                     else:
                         response_text = "Maaf, saya tidak dapat mengenali jumlah pengeluaran."
-                    elif last_message.lower() in ['laporan', 'report', 'rekap']:
-                        user_id = storage.get_user_id_by_phone(chat_title)
-                        if user_id is None:
-                            user_id = 1
-                        report = storage.get_report(user_id)
-                        if report:
-                            response_text = (f"Laporan Keuangan:\n"
-                                             f"Pemasukan: Rp {report['total_income']}\n"
-                                             f"Pengeluaran: Rp {report['total_outcome']}\n"
-                                             f"Saldo: Rp {report['balance']}\n\n"
-                                             f"Untuk laporan lengkap, kunjungi: http://localhost:5000")
-                        else:
-                            response_text = "Maaf, tidak dapat mengambil laporan saat ini."
+                elif last_message.lower() in ['laporan', 'report', 'rekap']:
+                    user_id = storage.get_user_id_by_phone(chat_title)
+                    if user_id is None:
+                        user_id = 1
+                    report = storage.get_report(user_id)
+                    if report:
+                        response_text = (f"Laporan Keuangan:\n"
+                                         f"Pemasukan: Rp {report['total_income']}\n"
+                                         f"Pengeluaran: Rp {report['total_outcome']}\n"
+                                         f"Saldo: Rp {report['balance']}\n\n"
+                                         f"Untuk laporan lengkap, kunjungi: http://localhost:5000")
+                    else:
+                        response_text = "Maaf, tidak dapat mengambil laporan saat ini."
                 elif last_message.lower().startswith('add budget'):
                     try:
                         parts = last_message.split()
@@ -122,14 +142,14 @@ class WhatsAppBot:
                             category = parts[2]
                             amount = float(parts[3])
                             period = parts[4]
-                            storage.add_budget(category, amount, period)
+                            storage.add_budget(user_id, category, amount, period)
                             response_text = f"Budget untuk kategori '{category}' sebesar Rp {amount} per {period} telah ditambahkan."
                         else:
                             response_text = "Format perintah budget salah. Gunakan: add budget <kategori> <jumlah> <periode>"
                     except Exception as e:
                         response_text = f"Terjadi kesalahan saat menambahkan budget: {e}"
                 elif last_message.lower().startswith('show budgets'):
-                    budgets = storage.get_budgets()
+                    budgets = storage.get_budgets(user_id)
                     if budgets:
                         response_text = "Daftar Budget:\n"
                         for b in budgets:
@@ -142,14 +162,14 @@ class WhatsAppBot:
                         if len(parts) >= 4:
                             name = parts[2]
                             target_amount = float(parts[3])
-                            storage.add_goal(name, target_amount)
+                            storage.add_goal(user_id, name, target_amount)
                             response_text = f"Goal '{name}' dengan target Rp {target_amount} telah ditambahkan."
                         else:
                             response_text = "Format perintah goal salah. Gunakan: add goal <nama> <target_jumlah>"
                     except Exception as e:
                         response_text = f"Terjadi kesalahan saat menambahkan goal: {e}"
                 elif last_message.lower().startswith('show goals'):
-                    goals = storage.get_goals()
+                    goals = storage.get_goals(user_id)
                     if goals:
                         response_text = "Daftar Goals:\n"
                         for g in goals:
@@ -206,11 +226,22 @@ class WhatsAppBot:
             logger.info("WhatsApp Bot stopped.")
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-        print("Usage: python whatsapp_bot.py <path_to_chromedriver>")
-        sys.exit(1)
-    driver_path = sys.argv[1]
-    bot = WhatsAppBot(driver_path)
-    bot.start()
-    # Add further logic to listen and respond to messages
+    import argparse
+
+    parser = argparse.ArgumentParser(description="WhatsApp Bot")
+    parser.add_argument("chromedriver_path", help="Path to chromedriver executable")
+    parser.add_argument("--user_data_dir", help="Path to Chrome user data directory for session persistence", default="./User_Data")
+
+    args = parser.parse_args()
+
+    bot = WhatsAppBot(args.chromedriver_path, args.user_data_dir)
+
+    # Start the bot in a separate thread to avoid blocking
+    def start_bot():
+        bot.start()
+
+    bot_thread = threading.Thread(target=start_bot)
+    bot_thread.start()
+
+    # Run the async listener in the main thread event loop
+    asyncio.run(bot.listen_messages_async())
