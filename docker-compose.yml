@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.bot
+    volumes:
+      - .:/app
+    depends_on:
+      - web
+      - ai
+    restart: unless-stopped
+
+  ai:
+    build:
+      context: .
+      dockerfile: Dockerfile.ai
+    volumes:
+      - .:/app
+    ports:
+      - "6000:6000"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
