@@ -1,15 +1,26 @@
-// This is a placeholder JavaScript version of your AI model integration.
-// You can replace the logic here with your actual AI model code or API calls.
+// AI model integration updated to use local AI inference server
+
+const axios = require('axios');
+
+const LOCAL_AI_API_URL = 'http://localhost:6000/api/ai';
 
 class FinancialPlannerAI {
     constructor() {
-        // Initialize model parameters or API endpoints here
+        this.apiUrl = LOCAL_AI_API_URL;
     }
 
     async generateResponse(text) {
-        // Implement your AI response generation logic here
-        // For now, return a placeholder response
-        return `Ini adalah balasan AI untuk pesan Anda: "${text}"`;
+        try {
+            const response = await axios.post(this.apiUrl, { text });
+            if (response.data && response.data.response) {
+                return response.data.response;
+            } else {
+                return "Maaf, saya tidak dapat memahami pesan Anda.";
+            }
+        } catch (error) {
+            console.error('Error calling local AI server:', error);
+            return "Maaf, terjadi kesalahan saat memproses pesan Anda.";
+        }
     }
 }
 
