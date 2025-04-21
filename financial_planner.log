@@ -714,3 +714,6 @@
 2025-04-20 12:51:52,216 - financial_planner - INFO - Database tables created or verified.
 2025-04-20 13:00:18,008 - financial_planner - INFO - Connected to database financial_data.db
 2025-04-20 13:00:18,011 - financial_planner - INFO - Database tables created or verified.
+2025-04-20 15:22:08,794 - financial_planner - INFO - User admin logged in.
+2025-04-20 15:22:09,080 - financial_planner - ERROR - Error generating report for user 1: no such column: user_id
+2025-04-20 15:22:09,080 - financial_planner - ERROR - Error fetching transactions for user 1: no such column: t.sender_phone
