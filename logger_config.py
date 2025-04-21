@@ -1,22 +1,17 @@
 import logging
+from logging.handlers import RotatingFileHandler
 
-def setup_logger(name='financial_planner'):
-    logger = logging.getLogger(name)
+def setup_logger(log_file='financial_planner.log'):
+    logger = logging.getLogger('financial_planner')
     logger.setLevel(logging.INFO)
 
-    # Console handler
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    ch.setFormatter(formatter)
-
-    # File handler
-    fh = logging.FileHandler('financial_planner.log')
-    fh.setLevel(logging.DEBUG)
-    fh.setFormatter(formatter)
+    handler = RotatingFileHandler(log_file, maxBytes=5*1024*1024, backupCount=3)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
 
     if not logger.hasHandlers():
-        logger.addHandler(ch)
-        logger.addHandler(fh)
+        logger.addHandler(handler)
 
     return logger
+
+logger = setup_logger()
