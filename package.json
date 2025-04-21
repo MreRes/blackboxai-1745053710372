@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@adiwajshing/baileys": "^5.0.0",
+    "axios": "^1.8.4",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "pino": "^9.6.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
